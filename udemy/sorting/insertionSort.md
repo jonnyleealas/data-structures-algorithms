@@ -32,3 +32,11 @@ function insertionSort(arr){
     - j loop decrements 1 index at each iteration. We have to make sure we are leaving j at its position and swapping j + 1 with current.
     - note that j has to be a var not a let. Because it has to be used outside its scope.
         - Return arr
+
+# Ah ha notes
+- The function won't stop till the outer loop has gone through each element in the array.
+- The nested loop will check the numbers before the current number the outer loop is on.
+    - If the array is [3,4,5,2,7] i = 2
+    - nested loop will check 5, 4, 3 and swap until it needs to break
+        - If the nested loop breaks the outer loop will go to 7
+        - the nested loop will then check 2,5,4,3 and swap until it needs to break.
