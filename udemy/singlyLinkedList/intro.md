@@ -17,7 +17,8 @@
 - create class singlyLinkedList that doesn't take value but saves length, head, tail
 
 # Light Bulb
-- The reason the instance methods can read this.head and this.tail without taking any values is because they will be used on other methods that are part of the same class. They have access to the the parent class constructor. They also have access to the node class because the function that adds a new new is using the node class. They are all intertwined.
+- The reason the instance methods can read this.head and this.tail without taking any values is because they will be used on other methods that are part of the same class. They have access to the the parent class constructor. They also have access to the node class because the function that adds a new new is using the node class. They are all intertwined. 
+- The data structure can only use methods from its same class.
 ```
 
 class Node{
