@@ -13,14 +13,13 @@
 - Only point to the next node in front.
 
 # Code
-- create class node takes value and pointer to next
-- create class singlyLinkedList that doesn't take value but saves length, head, tail
+- The trick to this is to loop while current.next or rather while current is pointing to something. When it points to null or rather points to nothing we can stop the loop. 
+  - While we are looping we save the current position.
+  - once its saved we go to the next node.
+  - We save the current position and go to the next node.
+  - The reason we do this is that at the end of the loop we will have saved the node right before the last node. And thats the trick. If we can save in memory the node before the last node, we simply assign the tail to be the node we saved, then tell the node we saved to point to null. That will then cut off the pointer to our previous tail and viola we've deleted the last node.
 
-# Light Bulb
-- The reason the instance methods can read this.head and this.tail without taking any values is because they will be used on other methods that are part of the same class. They have access to the the parent class constructor. They also have access to the node class because the function that adds a new new is using the node class. They are all intertwined. 
-- The data structure can only use methods from its same class.
-- If I want to make something the tail i can have the tail.next point to the newTail 
-  - I then make tail = newTail
+
 ```
 
 class Node{
@@ -77,3 +76,10 @@ console.log(ll)
 
 
 ```
+
+# Light Bulb
+- The reason the instance methods can read this.head and this.tail without taking any values is because they will be used on other methods that are part of the same class. They have access to the the parent class constructor. They also have access to the node class because the function that adds a new new is using the node class. They are all intertwined. 
+- The data structure can only use methods from its same class.
+- If I want to make something the tail i can have the tail.next point to the newTail 
+  - I then make tail = newTail
+- To add a new tail we assign a new tail then have the new tails pointer to next point to null.
