@@ -11,7 +11,7 @@
 
 # Singly Linked List
 - Only point to the next node in front.
-
+- Linked list will usually have a node head, tail, length, next in their constructor
 # Code
 - The trick to this is to loop while current.next or rather while current is pointing to something. When it points to null or rather points to nothing we can stop the loop. 
   - While we are looping we save the current position.
