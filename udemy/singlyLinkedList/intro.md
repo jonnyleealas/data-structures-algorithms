@@ -22,57 +22,138 @@
 
 ```
 
-class Node{
-  constructor(value){
-    this.value = value;
+// let obj = {
+//   key1: "sand",
+//   key2: "dirt",
+//   ky3: "mud",
+// }
+
+// for (let key in obj) {
+//   console.log(obj[key])
+// }
+
+class Node {
+  constructor(val) {
+    this.val = val;
     this.next = null;
   }
 }
 
-class Singly{
-  constructor(){
+class LL {
+  constructor() {
     this.length = 0;
     this.head = null;
     this.tail = null;
   }
-
-  push(value){
-    let newNode = new Node(value);
-    if(!this.head){
+  // put something at the end of a list
+  push(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
+
     } else {
       this.tail.next = newNode;
-      this.tail = newNode;
+      this.tail = newNode
     }
-    this.length++;
+    this.length++
+
+  }
+// put in front of list
+  unshift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      
+
+    } else {
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+    this.length++
     return this;
   }
+// insert after head
+  insertAfter(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      this.length++
 
-  pop(){
-    if(!this.head) return undefined;
-    let current = this.head;
-    let newTail = current;
-    while(current.next){
-      newTail = current;
-      current = current.next;
+    } else {
+      newNode.next = this.head.next;
+      this.head.next = newNode;
+      this.length++
+
     }
-    this.tail = newTail;
-    this.tail.next = null;
-    this.length--;
-    if(this.length === 0){
-      this.head = null;
-      this.tail = null;
-    }
-    return current;
   }
+// delete head
+  shift() {
+    if (!this.head) return undefined
+    let head = this.head;
+    this.head = head.next;
+    this.length--;
+    return head.val;
+  }
+
+// delete tail
+pop(){
+  if(!this.head) return undefined;
+  let current = this.head;
+  let newTail = current;
+  while(current.next){
+    newTail = current;
+    current = current.next;
+  }
+this.tail = newTail;
+this.tail.next = null;
+this.length--;
+if(this.length === 0){
+  this.head = null;
+  this.tail = null;
 }
-let ll = new Singly();
-ll.push("five")
-ll.push("six")
-ll.pop();
-ll.pop()
-console.log(ll)
+return current;
+}
+get(index){
+  if(index < 0 || index >= this.length)return null;
+  let current = this.head;
+  let counter = 0;
+  
+  while(counter !== index){
+    current = current.next;
+    counter++
+  }
+return current
+}
+
+listLength(){
+  return this.length;
+}
+// sets value of node according to index and value
+set(index, val){
+ let found = this.get(index);
+  if(found){
+    found.val = val;
+    return {found: true, value: val};
+  }
+  return true;
+}
+}
+
+
+let l = new LL()
+l.push("sarah")
+l.push("samson")
+l.push("jack")
+l.push("henry")
+l.unshift("jackson")
+l.unshift("barry allen")
+l.set(2, "300")
+
+
+
 
 
 ```
