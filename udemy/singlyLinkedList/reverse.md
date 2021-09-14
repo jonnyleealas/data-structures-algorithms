@@ -1,16 +1,33 @@
 # Reversing a linked list
+```
+reverse(){
+  let node = this.head;
+  this.head = this.tail;
+  this.tail = node;
+  let next;
+  let prev = null;
+
+  for(let i = 0; i < this.length; i++){
+    next = node.next;
+    node.next = prev;
+    prev = node;
+    node = next;
+  }
+  return this;
+}
+
+```
+# Explanation 
+- We this.head = this.tail will leave the value of the head but change what its called.
+- this.tail = node will set the tail to be the head. The linked list values stay the same but the definers of head and tail have changed.
+- we are just changing the pointers of each node to be the previous node.
+
+
+
 
 # Code
 ```
-// let obj = {
-//   key1: "sand",
-//   key2: "dirt",
-//   ky3: "mud",
-// }
 
-// for (let key in obj) {
-//   console.log(obj[key])
-// }
 
 class Node {
   constructor(val) {
