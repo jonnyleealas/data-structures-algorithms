@@ -1,4 +1,4 @@
-# Reversing a linked list
+# Reversing a linked list in place
 ```
 reverse(){
   let node = this.head;
@@ -21,6 +21,11 @@ reverse(){
 - We this.head = this.tail will leave the value of the head but change what its called.
 - this.tail = node will set the tail to be the head. The linked list values stay the same but the definers of head and tail have changed.
 - we are just changing the pointers of each node to be the previous node.
+
+# Learns
+- The tricky part for me was understanding why flipping head and tail didn't flip the values. What seems to be happening is that the head and the tail are reversed but the values stay in place.
+- We aren't actually reversing value, what we are doing is reversing what the values are pointing to. 
+- In This case we are having the nodes point to its previous node. Thats why its called reverse in place. Nothing actually moves except for their pointers.
 
 
 
