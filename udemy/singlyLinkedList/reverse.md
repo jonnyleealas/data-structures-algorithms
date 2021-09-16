@@ -24,8 +24,9 @@ reverse(){
 
 # Learns
 - The tricky part for me was understanding why flipping head and tail didn't flip the values. What seems to be happening is that the head and the tail are reversed but the values stay in place.
-- We aren't actually reversing value, what we are doing is reversing what the values are pointing to. 
+- We aren't actually reversing value, what we are reversing is simply the head and the tail. So if the value of head was 1 and the value of tail was; tail is now 1 and head is now five, but the order of the values in the linked list remain the same at this point. 
 - In This case we are having the nodes point to its previous node. Thats why its called reverse in place. Nothing actually moves except for their pointers.
+- At each step we need to update where we are currently. 
 
 
 
