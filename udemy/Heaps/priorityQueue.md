@@ -69,7 +69,7 @@ class PriorityQueue {
           this.values[idx] = this.values[swap];
           this.values[swap] = parent;
           idx = swap
-            console.log("bitch",idx)   
+            console.log("whats up",idx)   
       }
     }
   }

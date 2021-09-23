@@ -130,7 +130,7 @@ function power(base, exponent){
 - Next slice at index 1 + add index 0. We call this functions recursively till it has sliced and added each index to the end of the array.
 ```
 
-let n = [1,2,"bitch"]
+let n = [1,2,"larry"]
 
 function reverse(str){
 	if(str.length <= 1) return str;
