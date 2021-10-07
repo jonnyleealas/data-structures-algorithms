@@ -34,9 +34,34 @@ class Doubly{
     }
     this.length++ 
     return this;
-
-
   }
+
+  pop(){
+    if(!this.head){
+      return undefined
+    }
+    let popped = this.tail;
+    if(this.length === 1){
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = popped.prev;
+      this.tail.next = null;
+      popped.prev = null;
+    }
+    this.length--;
+    return this;
+  }
+}
+let nn = new Doubly()
+nn.push(3)
+nn.push(4)
+nn.push(323)
+nn.push(32)
+
+
+console.log(nn)
+
 }
 let nn = new Doubly()
 nn.push(3)
