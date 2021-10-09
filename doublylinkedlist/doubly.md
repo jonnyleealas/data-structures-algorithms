@@ -109,19 +109,21 @@ class Doubly {
     if(index < 0 || index >= this.length){
       return null;
     }
+    let current, count;
     if(index <= this.length/2){
       console.log("start")
+      // start from head and work our way forward.
       while(count != index){
-        let count = 0;
-    let current = this.head
-      current = current.next;
-      count++;
+        count = 0;
+        current = this.head
+        current = current.next;
+        count++;
     }
     return current;
     } else {
-      console.log("end")
-      let count = this.length - 1;
-      let current = this.tail;
+      // start from tail and work our way back
+      count = this.length - 1;
+      current = this.tail;
       while(count != index){
         current = current.prev;
         count--
@@ -137,6 +139,6 @@ let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
-nn.get(2)
+
 console.log(nn.get(2))
 ```
