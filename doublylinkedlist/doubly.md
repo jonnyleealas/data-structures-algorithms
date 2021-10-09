@@ -4,6 +4,29 @@
         - Those arrows point to the next node
             - The node can hold a value
 
+# Get
+- The trick here is to find out which end to start from. We can start from the start or the end.
+- If the index is greater than the middle we start at the end and work our way down.
+- if the index is less than the middle of the list we start from the beginning and work our way up.
+- if there is no head  
+  - return null 
+- We can create binding for current and count which we can update in our next if statements.
+- if index is < 0 or index is > than 0 or index is equal to 0 return null.
+  - the highest index in an array or linked list will always be length - 1. If index is 10 and length is 10 we have to go back one spot to index 9. There is nothing at index 10.
+- if index is less than or equal to length/2
+  - while count != index
+    - count = 0
+    - start at head
+    - head = head.next
+    - count++
+      (once index is no longer less than or equal to length we can return )
+  - else start at tail and work our way back
+    - count = this.length - 1
+    - start at tail
+    - while count != index
+      - tail = tail.prev
+      - count--
+      (once count is equal to index we can return)
 # Doubly Class
 ```
 class Node {
