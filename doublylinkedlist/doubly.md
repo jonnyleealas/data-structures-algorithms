@@ -6,81 +6,114 @@
 
 # Doubly Class
 ```
-class Node{
-  constructor(val){
+class Node {
+  constructor(val) {
     this.val = val;
-     this.next = null;
-     this.prev = null;
+    this.next = null;
+    this.prev = null;
   }
 }
 
-class Doubly{
-  constructor(){
+class Doubly {
+  constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
-  push(val){
+  push(val) {
     let newNode = new Node(val);
-    if(!this.head){
+    if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
-           
+
     }
-    this.length++ 
+    this.length++
     return this;
   }
 
-  pop(){
-    if(!this.head){
-      return undefined
+  pop() {
+    if (this.length === 0) {
+      return undefined;
     }
-    let popped = this.tail;
-    if(this.length === 1){
+    let oldTail = this.tail;
+    if (this.length == 1) {
       this.head = null;
       this.tail = null;
     } else {
-      this.tail = popped.prev;
+      this.tail = oldTail.prev
       this.tail.next = null;
-      popped.prev = null;
+      oldTail.prev = null;
     }
     this.length--;
+    return oldTail;
+
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let oldHead = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      this.length--;
+      return oldHead;
+    }
+  }
+
+  unShift(val){
+    let newNode = new Node(val);
+    if(!this.head){
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++
     return this;
   }
 
-  shift(){
-    if(this.length === 0 ){
-      return undefined
+  get(index){
+    if(index < 0 || index >= this.length){
+      return null;
     }
-    var oldHead = this.head;
-    if(this.length === 1){
-      this.head = null;
-      this.tail = null;
+    if(index <= this.length/2){
+      console.log("start")
+      while(count != index){
+        let count = 0;
+    let current = this.head
+      current = current.next;
+      count++;
     }
-    this.head = oldHead.next;
-    this.head.prev = null;
-    oldHead.next = null;
-
-    this.length--;
-    return oldHead;
+    return current;
+    } else {
+      console.log("end")
+      let count = this.length - 1;
+      let current = this.tail;
+      while(count != index){
+        current = current.prev;
+        count--
+      }
+      
+    }
+    return current;
+    
   }
-  
+
 }
 let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
-nn.push(32)
-
-
-
-
-nn.pop()
-nn.shift()
-console.log(nn)
+nn.get(2)
+console.log(nn.get(2))
 ```
