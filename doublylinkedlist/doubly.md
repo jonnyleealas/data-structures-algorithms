@@ -30,7 +30,11 @@
 
       # Set
       - Replacing a value in a node 
-
+  - must be careful  to set variables outside of loops.
+# Set
+- Takes an index and replaces the node value of that index in a list.
+- Use our get method with our index passed in and set it as a variable.
+  - Use the returned value to find the index of our list and replace the value in that index with our newValue
 # Doubly Class
 ```
 class Node {
@@ -64,7 +68,7 @@ class Doubly {
   }
 
   pop() {
-    if (this.laength === 0) {
+    if (this.length === 0) {
       return undefined;
     }
     let oldTail = this.tail;
@@ -147,7 +151,7 @@ let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
+nn.set(0, "blast")
 
-
-console.log(nn.get(2))
+console.log(nn)
 ```
