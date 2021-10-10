@@ -27,6 +27,10 @@
       - tail = tail.prev
       - count--
       (once count is equal to index we can return)
+
+      # Set
+      - Replacing a value in a node 
+
 # Doubly Class
 ```
 class Node {
@@ -60,7 +64,7 @@ class Doubly {
   }
 
   pop() {
-    if (this.length === 0) {
+    if (this.laength === 0) {
       return undefined;
     }
     let oldTail = this.tail;
@@ -109,29 +113,33 @@ class Doubly {
     if(index < 0 || index >= this.length){
       return null;
     }
-    let current, count;
+    let count, current;
     if(index <= this.length/2){
-      console.log("start")
-      // start from head and work our way forward.
-      while(count != index){
         count = 0;
-        current = this.head
-        current = current.next;
-        count++;
-    }
-    return current;
-    } else {
-      // start from tail and work our way back
-      count = this.length - 1;
-      current = this.tail;
-      while(count != index){
-        current = current.prev;
-        count--
+        current = this.head;
+        while(count != index){
+          current = current.next;
+          count++;
+        }
+        return current;
+      } else {
+        count = this.length - 1;
+        current = this.tail;
+        while(index != count){
+          current = count.prev;
+          count--;
+        }
+        return current;
       }
-      
+  }
+
+  set(index, newValue){
+    let replace = this.get(index);
+    if(replace != null){
+      replace.val = newValue;
+      return true
     }
-    return current;
-    
+    return false;
   }
 
 }
@@ -139,6 +147,7 @@ let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
+
 
 console.log(nn.get(2))
 ```
