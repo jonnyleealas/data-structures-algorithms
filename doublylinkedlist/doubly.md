@@ -40,6 +40,9 @@
   - add a node and value according to index input
   - we can use our get method to insert a value 
   - the trick here is to go to our index position and set the prev and the next positions accordingly. We set the pointers of the node before the index and the node after the index. We can save before index and after index binders to keep track of next and prev pointers.
+  - First our null check. If index is less than 0 or greater than length return null.
+  - if index is 0 we can use unshift to add to the front.
+  - if index is the length of the list we can use push to add to the end.
 
 # Doubly Class
 ```
