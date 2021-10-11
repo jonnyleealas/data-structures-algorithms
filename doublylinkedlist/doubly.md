@@ -35,6 +35,11 @@
 - Takes an index and replaces the node value of that index in a list.
 - Use our get method with our index passed in and set it as a variable.
   - Use the returned value to find the index of our list and replace the value in that index with our newValue
+
+  # Insert
+  - add a node and value according to index input
+  - we can use our get method to insert a value 
+
 # Doubly Class
 ```
 class Node {
@@ -68,7 +73,7 @@ class Doubly {
   }
 
   pop() {
-    if (this.length === 0) {
+    if (this.laength === 0) {
       return undefined;
     }
     let oldTail = this.tail;
@@ -144,6 +149,22 @@ class Doubly {
       return true
     }
     return false;
+  }
+
+  insert(index, newVal){
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return this.unShift(newVal);
+    if(index === this.length) return this.push(newVal);
+    let newNode = new Node(newVal)
+    let beforeNode = this.get(index - 1);
+    let afterNode = beforeNode.next;
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    newNode.next = afterNode;
+    afterNode.prev = newNode;
+    this.length++
+    return true;
+
   }
 
 }
