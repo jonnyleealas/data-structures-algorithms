@@ -77,7 +77,7 @@ class Doubly {
   }
 
   pop() {
-    if (this.laength === 0) {
+    if (this.length === 0) {
       return undefined;
     }
     let oldTail = this.tail;
