@@ -39,7 +39,7 @@
   # Insert
   - add a node and value according to index input
   - we can use our get method to insert a value 
-  - the trick here is to go to our index position and set the prev and the next positions accordingly. We set the pointers of the node before the index and the node after the index. We can save before index and after index binders to keep track of next and prev pointers.
+  - The trick is to save the previous and next indexes of the index we are trying to insert. If we want to insert into index 2 then we have to save index 1 and save index 3 in variables. Then we can adjust 1 pointer to point to new index, and adjust index previous to point to 1. We have to do the same for indexes next pointer and the original next pointers previous.
   - First our null check. If index is less than 0 or greater than length return null. If our index is greater than length that means we would have to go passed the last thing in the array and also go passed its next index. This causes an issue because we would have empty spaces after the last index to make sure our new index is in the correct position. This would cause a waste of space.
   - We have to check length first. We want our function to return null as quickly as possible if the list is empty. If it isn't empty it won't return null and we now know there is at least one thing in the list.
   - if index is 0 we can use unshift to add to the front. The reason we do this is we have to move each index in the list to so that index 0 is empty; then we can add our new index in the now empty index.
@@ -156,28 +156,29 @@ class Doubly {
     return false;
   }
 
-  insert(index, newVal){
-    if(index < 0 || index > this.length) return false;
-    if(index === 0) return this.unShift(newVal);
-    if(index === this.length) return this.push(newVal);
-    let newNode = new Node(newVal)
-    let beforeNode = this.get(index - 1);
-    let afterNode = beforeNode.next;
-    beforeNode.next = newNode;
-    newNode.prev = beforeNode;
-    newNode.next = afterNode;
-    afterNode.prev = newNode;
-    this.length++
-    return true;
-
+insert(index, value){
+  if(index < 0 || index > this.length) return undefined;
+  if(index === 0){
+    return this.unShift(value)
   }
+  if(index === this.length){
+    return this.push(value)
+  }
+  let newNode = new Node(value);
+  let before = this.get(index - 1);
+  let after = before.next;
+  before.next = newNode;
+  newNode.prev = before;
+  newNode.next = after;
+  after.prev = newNode;
+  this.length++
+  return this;
+}
 
 }
 let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
-nn.set(0, "blast")
-
-console.log(nn)
+nn.insert(56, "bulls on parade")
 ```
