@@ -180,5 +180,5 @@ let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
-nn.insert(56, "bulls on parade")
+nn.insert(56, "bulls")
 ```
