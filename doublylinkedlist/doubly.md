@@ -177,7 +177,9 @@ insert(index, value){
 
 remove(index){
   let deleteNum = this.get(index);
-  if(!)
+  if(index < 0 || >= this.length) return undefined;
+  if(index === 0) return this.shift();
+  if(index === this.length - 1) return this.pop();
 }
 
 }
