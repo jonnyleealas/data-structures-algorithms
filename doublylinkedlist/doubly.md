@@ -175,6 +175,11 @@ insert(index, value){
   return this;
 }
 
+remove(index){
+  let deleteNum = this.get(index);
+  if(!)
+}
+
 }
 let nn = new Doubly()
 nn.push(3)
