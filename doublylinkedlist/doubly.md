@@ -176,10 +176,16 @@ insert(index, value){
 }
 
 remove(index){
-  let deleteNum = this.get(index);
-  if(index < 0 || >= this.length) return undefined;
-  if(index === 0) return this.shift();
-  if(index === this.length - 1) return this.pop();
+if(index < 0 || index >= this.length) return undefined;
+if(index === 0) return this.shift();
+if(index === this.length - 1) return this.pop;
+let removed = this.get(index);
+removed.prev.next = removed.next;
+removed.next.prev = removed.prev;
+removed.next = null;
+removed.prev = null;
+this.length--;
+return removed;
 }
 
 }
