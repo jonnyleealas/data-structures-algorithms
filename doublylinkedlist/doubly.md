@@ -45,6 +45,13 @@
   - if index is 0 we can use unshift to add to the front. The reason we do this is we have to move each index in the list to so that index 0 is empty; then we can add our new index in the now empty index.
   - if index is the length of the list we can use push to add to the end. If the length is 5 that means there are 4 things in our list, because the last thing in the list is always length - 1. If the index we want to add to is the same as length that perfectly fine. What we have to do is go the the end of the list and add our new index there. In this case we can simply push. When the number of things in a list is 4 and we push on to the end, our index will end up being index 5 of the list. Now our Length has changed from 5 to 6. 
 
+# Remove
+- Take an index and removes the node in the index.
+- We need to save the index we are removing, index's previous, index's .next.
+- We do is assign our prev to point to the index's next. 
+  - the index's next to point to the index's previous.
+    - then indexes next to point to null
+    - index's prev to point to null.
 # Doubly Class
 ```
 class Node {
