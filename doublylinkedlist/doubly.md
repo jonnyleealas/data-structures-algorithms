@@ -83,7 +83,7 @@ class Doubly {
     this.length++
     return this;
   }
-
+// remove tail
   pop() {
     if (this.length === 0) {
       return undefined;
@@ -101,7 +101,7 @@ class Doubly {
     return oldTail;
 
   }
-
+// remove head
   shift() {
     if (!this.head) return undefined;
     let oldHead = this.head;
@@ -183,16 +183,18 @@ insert(index, value){
 }
 
 remove(index){
-if(index < 0 || index >= this.length) return undefined;
-if(index === 0) return this.shift();
-if(index === this.length - 1) return this.pop;
-let removed = this.get(index);
-removed.prev.next = removed.next;
-removed.next.prev = removed.prev;
-removed.next = null;
-removed.prev = null;
-this.length--;
-return removed;
+  if(index < 0 || index >= this.length) return undefined;
+  if(index === 0) return this.shift();
+  if(index === this.length - 1) return this.pop();
+  let node = this.get(index);
+  let before = node.prev;
+  let after = node.next;
+  before.next = node.next;
+  after.prev = node.prev;
+  node.next = null;
+  node.prev = null;
+  this.length--
+  return node
 }
 
 }
@@ -200,5 +202,7 @@ let nn = new Doubly()
 nn.push(3)
 nn.push(4)
 nn.push(323)
-nn.insert(56, "bulls")
+nn.insert(56, "bulls on parade")
+nn.remove(1)
+// console.log(nn)
 ```
