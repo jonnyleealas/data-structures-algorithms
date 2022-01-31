@@ -24,3 +24,17 @@ var twoSum = function(nums, target) {
     }
 };
 ```
+```
+function twoSum(nums, target) {
+  let comp = new Map()
+  const len = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+    if (target - nums[i] in comp) {
+      return [comp[target-nums[i]], i];
+    } else {
+      comp[nums[i]] = i;
+    }
+  }
+  return [];
+};
+```
