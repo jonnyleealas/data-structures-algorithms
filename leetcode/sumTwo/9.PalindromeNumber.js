@@ -17,3 +17,15 @@ var isPalindrome = function(x) {
     // compare reversed number to x for true or false
     return reverse === x;
 };
+
+
+var isPalindrome = function(x) {
+    // convert numbers to strings
+    // split at each index
+    // reverse the string .reverse()
+    // join the string at each index
+
+    let reversed = x.toString().split('').reverse().join('');
+    // compare reversed with x variable but also convert x into string
+      return reversed === x.toString()
+  };
